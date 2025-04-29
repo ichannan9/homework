@@ -3,6 +3,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import authRouter from "./routes/auth.js";
 import { errorHandler } from "./middleware/errorHandler.js";
+import postsRouter from "./routes/posts.js";
 
 // ES 모듈 __dirname 셋업
 const __filename = fileURLToPath(import.meta.url);
@@ -13,6 +14,8 @@ app.use(express.json());
 
 // API 라우터
 app.use("/auth", authRouter);
+
+app.use("/posts", postsRouter);
 
 // 정적 파일 제공(public 폴더)
 app.use(express.static(path.join(__dirname, "public")));
