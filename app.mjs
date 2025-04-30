@@ -15,7 +15,7 @@ const app = express();
 app.use(express.json());
 
 app.get("/", (req, res, next) => {
-  fs.readFile("./signup.html", (err, data) => {
+  fs.readFile("./public/signup.html", (err, data) => {
     if (err) {
       res.status(500);
       return res.send("파일 읽기 오류");
