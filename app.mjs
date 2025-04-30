@@ -14,8 +14,8 @@ const __dirname = path.dirname(__filename);
 const app = express();
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  fs.readFile("signup.html", (err, data) => {
+app.get("/", (req, res, next) => {
+  fs.readFile("./signup.html", (err, data) => {
     if (err) {
       res.status(500);
       return res.send("파일 읽기 오류");
